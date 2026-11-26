@@ -52,7 +52,7 @@ MAINNET_RPC_URL=https://ethereum-rpc.publicnode.com forge test --mc MainnetForkT
 
 ## Security
 
-The contracts are not audited. Use at your own risk. LP positions are exposed to impermanent loss and to PRIME price volatility.
+The contracts have not had an independent human audit. An AI-performed code review (by Claude, Anthropic) is available: [audit/PrimeHash-Security-Review-2026-11-26.pdf](audit/PrimeHash-Security-Review-2026-11-26.pdf). It found no critical, high or medium issues; 3 low and 7 informational findings, none fixable in the immutable deployed code. Use at your own risk. LP positions are exposed to impermanent loss and to PRIME price volatility.
 
 Please report vulnerabilities privately through GitHub's "Report a vulnerability" (Security tab), not in public issues.
 
