@@ -16,6 +16,7 @@
 - **Ownership.** Rewards belong to the position NFT. Subscriber callbacks never revert after subscription, so they cannot block a withdrawal.
 - **Entry with ETH only.** `MiningZap` takes plain ETH, swaps the right share for PRIME, mints the position to the caller and refunds the dust. Then the owner subscribes the NFT to the engine.
 - **Immutable.** No owner, no admin functions, no upgradeability. Fees and emission are constants.
+- **Plug & Play rigs.** `RigShop` sells ready-built full-range positions made by the treasury, at a fixed ETH price set on-chain at build time (value + 20%). What a rig mines while on display is burned at sale (PRIME) or sent to the treasury (ETH); the buyer gets the bare position NFT and subscribes it. The shop is the only contract with a role: the treasury can build and delist rigs, nothing else.
 
 | Contract | Role |
 |---|---|
@@ -24,6 +25,7 @@
 | `src/PrimeToken.sol` | ERC-20 PRIME, 21M cap, only the MiningEngine can mint |
 | `src/GenesisReserve.sol` | Holds the 210,000 PRIME genesis, creates the pool, owns the launch liquidity forever |
 | `src/MiningZap.sol` | One-transaction entry with ETH only (swap + mint), optional on-chain referrer |
+| `src/RigShop.sol` | Plug & Play rigs: treasury-built positions sold for ETH at build value + 20% |
 
 ## Deployments: Ethereum mainnet
 
@@ -36,6 +38,7 @@ All are verified on Etherscan and Sourcify. Deploy block: 26497099.
 | PrimeHashHook | [`0x22Fc32f6AbF32EC820207dD6751a9334CeE320cc`](https://etherscan.io/address/0x22Fc32f6AbF32EC820207dD6751a9334CeE320cc#code) |
 | MiningZap | [`0xB10871397f5Ac0fFDd55E14572F51614C79d888D`](https://etherscan.io/address/0xB10871397f5Ac0fFDd55E14572F51614C79d888D#code) |
 | GenesisReserve | [`0x67C879793bA14BB5c63Be691136334578503f359`](https://etherscan.io/address/0x67C879793bA14BB5c63Be691136334578503f359#code) |
+| RigShop | [`0x16754Fe2311117EffD6C5CeefD451eb8216Cf48e`](https://etherscan.io/address/0x16754Fe2311117EffD6C5CeefD451eb8216Cf48e#code) (block 26505199) |
 
 Pool id: `0x182b9cd826d5a71b638ab59b38890ce1c57016d7a64ba1b0054c7069e757511f` (ETH/PRIME, 0.30%, tick spacing 60).
 
